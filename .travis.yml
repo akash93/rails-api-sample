@@ -15,4 +15,4 @@ before_script:
     - rails db:migrate
 
 script:
-    - rails test
+    - bundle exec rspec

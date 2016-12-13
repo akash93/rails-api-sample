@@ -18,6 +18,8 @@ gem 'coffee-rails', '~> 4.2'
 
 gem 'active_model_serializers'
 
+gem 'devise'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -34,12 +36,13 @@ gem 'jquery-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'sqlite3'
+
   gem 'byebug', platform: :mri
 end
 
 group :development do
   # Use sqlite3 as the database for Active Record
-  gem 'sqlite3'
 
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console'
@@ -56,7 +59,10 @@ end
 group :test do 
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'guard'
+  gem 'guard-rspec', require: false
   gem 'ffaker'
+  gem 'shoulda-matchers'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
