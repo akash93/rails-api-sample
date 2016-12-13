@@ -52,11 +52,6 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-group :test do
-  gem 'guard'
-  gem 'guard-rspec', require: false
-end
-
 group :doc do
   gem 'sdoc', require:false
 end
@@ -64,7 +59,10 @@ end
 group :test do 
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'guard'
+  gem 'guard-rspec', require: false
   gem 'ffaker'
+  gem 'shoulda-matchers'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
