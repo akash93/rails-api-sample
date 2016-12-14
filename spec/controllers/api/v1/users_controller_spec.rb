@@ -21,7 +21,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
     context 'When user is successfully created' do
       before (:each) do
         @user_attributes = FactoryGirl.attributes_for :user
-        post :create, {user: @user_attributes}
+        post :create, params: {user: @user_attributes}
       end
 
       it 'renders the json representation for the user just created' do 
@@ -35,7 +35,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
     context 'when user is not created' do
       before(:each) do
         @invalid_user_attributes = {password: 'password', password_confirmation: 'password'}
-        post :create , { user: @invalid_user_attributes }
+        post :create , params: { user: @invalid_user_attributes }
       end
 
       it 'renders an errors json' do
@@ -58,7 +58,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
     context "when is successfully updated" do
       before(:each) do
         @user = FactoryGirl.create :user
-        patch :update, { id: @user.id,
+        patch :update, params: { id: @user.id,
                          user: { email: "newmail@example.com" } }
       end
 
@@ -73,7 +73,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
     context "when is not created" do
       before(:each) do
         @user = FactoryGirl.create :user
-        patch :update, { id: @user.id,
+        patch :update, params: { id: @user.id,
                          user: { email: "bademail.com" } }
       end
 
@@ -94,7 +94,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
   describe "DELETE #destroy" do
     before(:each) do
       @user = FactoryGirl.create :user
-      delete :destroy, { id: @user.id }
+      delete :destroy, params: { id: @user.id }
     end
 
     it { should respond_with 204 }
