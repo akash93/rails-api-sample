@@ -19,6 +19,7 @@ RSpec.describe User, type: :model do
     it { should validate_confirmation_of(:password) }
     it { should allow_value('user@example.com').for(:email) }
     it { should validate_uniqueness_of(:auth_token) }
+    it { should have_many(:products) }
   end
 
   describe 'when email is absent' do
@@ -38,6 +39,21 @@ RSpec.describe User, type: :model do
       existing_user = FactoryGirl.create(:user, auth_token: 'auniquetoken123')
       @user.generate_authentication_token!
       expect(@user.auth_token).not_to eql existing_user.auth_token
+    end
+  end
+
+  describe '#product association' do
+    before do
+      @user.save
+      3.times { FactoryGirl.create :product, user: @user }
+    end
+
+    it 'destroys associated products when user is destroyed' do
+      products = @user.products
+      @user.destroy
+      products.each do |product|
+        expect(Product.find(product)).to raise_error ActiveRecord::RecordNotFound
+      end
     end
   end
 
