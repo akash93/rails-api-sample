@@ -38,6 +38,8 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'sqlite3'
 
+  gem 'factory_girl_rails'
+  gem 'ffaker'
   gem 'byebug', platform: :mri
 end
 
@@ -58,10 +60,8 @@ end
 
 group :test do 
   gem 'rspec-rails'
-  gem 'factory_girl_rails'
   gem 'guard'
   gem 'guard-rspec', require: false
-  gem 'ffaker'
   gem 'shoulda-matchers'
 end
 
