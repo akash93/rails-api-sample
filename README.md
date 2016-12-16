@@ -10,3 +10,5 @@ with a few small tweaks
   * Run tests `rails test`
   * Run the server `rails server`
 
+*PS* : The tutorial is 2 years old and uses rails 4 and outdated versions of other gems. I have made necessary syntax
+updates to port it to work on Rails 5 and updated versions of the gems
