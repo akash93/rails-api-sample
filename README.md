@@ -7,6 +7,6 @@ with a few small tweaks
   * Clone the repo
   * Install gems using `bundle install --without production`
   * Run migrations using `rails db:migrate`
-  * Run tests `rails test`
+  * Run tests `bundle exec rspec` or `rspec`
   * Run the server `rails server`
 
