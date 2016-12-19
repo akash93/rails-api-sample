@@ -7,7 +7,8 @@ class Api::V1::ProductsController < ApplicationController
   end
 
   def index
-    respond_with Product.all
+    products = current_user ? Product.find_by(user_id: current_user.id) : Product.all
+    render json: products
   end
 
   def create

@@ -7,7 +7,7 @@ with a few small tweaks
   * Clone the repo
   * Install gems using `bundle install --without production`
   * Run migrations using `rails db:migrate`
-  * Run tests `rails test`
+  * Run tests `bundle exec rspec` or `rspec`
   * Run the server `rails server`
 
 *PS* : The tutorial is 2 years old and uses rails 4 and outdated versions of other gems. I have made necessary syntax
