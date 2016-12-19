@@ -9,7 +9,7 @@ RSpec.describe Api::V1::ProductsController, type: :controller do
     end
 
     it 'returns correct information about product' do
-      product_response = json_response
+      product_response = json_response[:product]
       expect(product_response[:title]).to eql @product.title
     end
 
@@ -23,7 +23,7 @@ RSpec.describe Api::V1::ProductsController, type: :controller do
     end
 
     it 'returns products from database' do
-      expect(json_response.size).to eq 4
+      expect(json_response[:products].size).to eq 4
     end
 
     it { should respond_with 200 }
@@ -39,7 +39,7 @@ RSpec.describe Api::V1::ProductsController, type: :controller do
       end
 
       it 'renders json representation of created product' do
-        product_response = json_response
+        product_response = json_response[:product]
         expect(product_response[:title]).to eql @product_attributes[:title]
       end
 
@@ -79,7 +79,7 @@ RSpec.describe Api::V1::ProductsController, type: :controller do
       end
 
       it 'renders the json representation of updated user' do
-        product_response = json_response
+        product_response = json_response[:product]
         expect(product_response[:title]).to eql 'Some random title'
       end
 
